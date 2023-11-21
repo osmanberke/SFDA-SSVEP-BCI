@@ -4,9 +4,10 @@ This is the official repository for the paper titled "Source-Free Domain Adaptat
 # Preparation
 The Benchmark dataset [2] and BETA dataset [3] must be downloaded. The link for the both datasets: http://bci.med.tsinghua.edu.cn/download.html.
 
-# Training and evaluating the proposed source-free domain adaptation method
+# Evaluating the proposed source-free domain adaptation method
 In our performance evaluations, we conducted the comparisons (following the procedure in the literature) in a leave-one-participant-out fashion.
-For example, we generate the pre-trained DNN using data from 34 (69) participants and adapt the generated DNN in source-free fashion on the remaining test participant, who is considered a new user, using only unlabeled data of the remaining test participant. After adapting the DNN, we calculate the accuracy and ITR performance with true labels at the end of the adaptation. This process is repeated 35 (70) times in the case of the benchmark (BETA) dataset. While calculating the information transfer rate (ITR) results, a 0.5 second gaze shift time is taken into account. We use the DNN architecture of [4] as a DNN architecture, where we use three sub-bands and nine channels (Pz, PO3, PO5, PO4, PO6, POz, O1, Oz, O2).
+For example, we generate the pre-trained DNN using data from 34 (69) participants and adapt the generated DNN in source-free fashion on the remaining test participant, who is considered a new user, using only unlabeled data of the remaining test participant. We get initial predictions from either the pre-trained initial model or the FBCCA method and we choose the one having an initial higher silhouette score (for the details we kindly refer readers to [1]). The predictions of FBCCA are generated in "fbcca_classification.m". 
+After adapting the DNN, we calculate the accuracy and ITR performance with true labels at the end of the adaptation. This process is repeated 35 (70) times in the case of the benchmark (BETA) dataset. While calculating the information transfer rate (ITR) results, a 0.5 second gaze shift time is taken into account. We use the DNN architecture of [4] as a DNN architecture, where we use three sub-bands and nine channels (Pz, PO3, PO5, PO4, PO6, POz, O1, Oz, O2).
 
 # References 
 1. Osman Berke Guney, Deniz Kucukahmetler, and Huseyin Ozkan, "Source Free Domain Adaptation of a DNN for SSVEP-based Brain-Computer Interfaces", arXiv, 2023.
